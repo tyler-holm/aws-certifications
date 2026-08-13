@@ -75,3 +75,20 @@
 - Automatically register new instances to a load balancer
 - Detect and replace unhealthy instances
 - Cost savings: only run at optimal capacity
+
+### ASG - Scaling Strategies
+#### Manual Scaling 
+- update the size of an ASG manually (changing desired capacity)
+#### Dynamic Scaling
+- Respond to changing demand dynamically
+- Simple/Step Scaling
+    - When CloudWatch alarm is triggered (example CPU > 70%), then add 2 units
+    - When a CloudWatch alarm is triggered (example CPU < 30%), then remove 2 units
+- Target Tracking Scaling
+    - Set average CPU capacity targer to stay around 40%, ASG will scal automatically to stay near target
+- Scheduled Scaling
+    - Anticipate a scaling based on known usage patterns
+    - Example: increate the min capacity to 10 at 5pm on Fridays
+- Predictive Scaling
+    - Uses maching learning to predict futrue traffic ahead of time
+    - Automatically provisions EC2 instances in advance based on predictions
