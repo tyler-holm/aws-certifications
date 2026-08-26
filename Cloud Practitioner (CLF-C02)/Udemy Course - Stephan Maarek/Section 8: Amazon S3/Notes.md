@@ -121,6 +121,140 @@
     - Used for log aggregation, live replication between production and test accounts
 
 
+## Storage Classes
 
+- Durability:
+    - Represents how many times an object is going to be lost by S3
+    - High durability (99.999999999%, eleven 9's) of objects across multiple AZ
+    - If you store 10,000,0000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years
+    - Same for all storage classes
 
+- Availability:
+    - Measures how readily available a service is
+    - Varies depending on storage class
+    - Example: S3 standard has 99.99% availability = not available 53 minutes a year
+
+### S3 Standard - General Purpose
+- 99.99% Availability
+- Used for frequently accessed data
+- Low latency and high throughput
+- Sustain 2 concurrent facility failures
+- Use cases:
+    - Big data analytics
+    - mobile gaming & applications
+    - content distribution
+
+### S3 Standard Infrequent Access (S3 Standard-IA)
+- For data that is less frequently accessed, but requires rapid access when needed
+- Lower cost that S3 Standard
+- 99.9% Availability
+- Use cases:
+    - Disaster recovery
+    - backups
+- Amazon S3 One Zone - Infrequent Access (S3 One Zone-IA)
+    - High durability (99.999999999%) in a single AZ
+    - data lost when AZ is destroyed
+    - 99.5% Availability
+    - Use Cases:
+        - Storing secondary backup copies of on-premise data, or data you can recreate
+
+### S3 Glacier
+- Low-cost object storage meant for archiving / backup
+- price for storage and price for object retrieval
+- S3 Glacier Instant Retrieval
+    - Millisecond retrieval, great for data accessed once a quarter
+    - Minimum storage duration of 90 days
+- S3 Glacier Flexible Retrieval
+    - Expedited (1 to 5 minutes)
+    - Standard (3 to 5 hours)
+    - Bulk (5 to 12 hours) - free
+    - Minimum storage duration = 90 days
+- S3 Glacier Deep Archive
+    - long term storage
+    - Standard (12 hours)
+    - Bulk (48 hours)
+    - Minimum storage duration of 180 days
+
+### S3 Intelligent-Tiering
+- Small monthly monitoring and auto-tiering fee
+- Moves objects automatically between Access Tiers based on usage
+- No retrieval charges
+- Frequent Access tier
+    - default tier
+- Infrequent Access tier
+    - objects not accessed for 30 days
+- Archive Instant Access tier
+    - objects not accessed for 90 days
+- Archive Access tier (optional)
+    - configurable from 90 days to 700+ days
+- Deep Archive Access tier (optional)
+    - config from 180 days to 700+ days
+
+### S3 Express One Zone
+- High performance, single Availability Zone storage
+- Objects stored in a Directory Bucket (bucket in a single AZ)
+- Handles 100,000s requests per second with single-digit millisecond latency
+- Up to 10x better performance than S3 Standard (50% lower costs)
+- High Durability (99.999999999%) and Availability (99.95%)
+- Co-locate your storage and computer resources in the same AZ
+- Use cases: 
+    - latency-sensitive apps
+    - data-intensive apps
+    - AI & ML training
+    - financial modeling
+    - media processing
+    - HPC
+- Best integrated with:
+    - SageMaker Model Training
+    - Athena
+    - EMR
+    - Glue
+
+## S3 Encryption
+
+- Service Side Encryption
+    - Server handles the encryption after receiving the file
+    - Always on by default
+
+- Client Side Encryption
+    - User or Application encrypts the file before uploading to S3
+
+## IAM Access Analyzer for S3
+- Ensures that only the intended people have access to your S3 bucket
+- Evaluates S3 bucket policies, S3 ACLs, S3 Access Point Policies
+
+## AWS Snowball
+- Highly Secure, portable devices to collect and process data at the edge, and migrate data into and out of AWS
+- Types
+    - Storage Optimized - Has more storage
+    - Compute Optimized - Has less storage
+
+### Data Migration Use Case
+- You receive a physical device from AWS to load data onto, once data is loaded the physical snowball device is shipped back to AWS and connected to your AWS infastructure. From there you can load it onto an S3 bucket or some other AWS storage.
+- Helps migrate up to Petabytes of data
+- If migration will take more than 1 week to transfer all data it is recommended to use a snowball device
+
+### Edge Computing Use Case
+- Run EC2 Instances or Lambda function at the edge
+- Processing data while it is being created on an edge location
+    - a truck on the road
+    - a ship at sea
+    - an underground mining station
+    - location with little or no internet access/compute power
+- Device can be reconnected to AWS at a later time
+
+## Shared Responsibilty Model
+
+### AWS
+- Infrastructure
+- Configuration and vulnerability analysis
+- Compliance Validation
+
+### User
+- S3 Versioning
+- S3 Bucket Policies
+- S3 Replication setup
+- Logging and Monitoring
+- Picking S3 Ctorage Classes
+- Data encryption at rest and in transit
 
