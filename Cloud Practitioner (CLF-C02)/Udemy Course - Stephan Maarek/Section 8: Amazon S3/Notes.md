@@ -228,6 +228,7 @@
 - Types
     - Storage Optimized - Has more storage
     - Compute Optimized - Has less storage
+- AWS Snowball Edge is no longer available to new customers. New customers should explore AWS DataSync for online transfers, AWS Data Transfer Terminal for secure physical transfers, or AWS Partner solutions. For edge computing, explore AWS Outposts. Learn more about your options.
 
 ### Data Migration Use Case
 - You receive a physical device from AWS to load data onto, once data is loaded the physical snowball device is shipped back to AWS and connected to your AWS infastructure. From there you can load it onto an S3 bucket or some other AWS storage.
@@ -243,6 +244,58 @@
     - location with little or no internet access/compute power
 - Device can be reconnected to AWS at a later time
 
+### Snowball pricing
+- pay for device usage and data transfer out of AWS
+    - Data transfer in is free
+- On-Demand
+    - one-time service fee per job which includes
+        - 10 days of usage for snowball edge Storage Optimized 80TB
+        - 15 days of usage for snowball edge Storage Optimized 210TB
+    - shipping days are not counted towards the included days
+    - charged per day for any additional days
+- Committed Upfront
+    - Pay in advace for monthly, 1-year, and 3-years of usage
+    - Up to 62% discounted pricing
+
+## Storage Gateway (Hybrid Cloud)
+- Allows on-premise systems to seamlessly use the AWS Cloud storage
+- Hybrid Cloud
+    - Part of infrastructure is on-premise
+    - Part of you infrastructure is on the cloud
+- Reasons to do hybrid cloud
+    - Long cloud migrations
+    - security requirements
+    - compliance requirements
+    - IT strategy
+
+## S3 Summary
+- Buckets vs Objects
+    - Buckets have a gloabl unique name and are tied to a region
+    - Objects live within buckets (like files)
+- S3 Security
+    - IAM policies
+    - S3 bucker policies
+    - S3 encryption
+- S3 Websites
+    - host static website on Amazon S3
+- S3 Versioning
+    - multiple versions for files, prevents accidental deletes
+- S3 replication
+    - same region or cross-region, must enable versioning
+- S3 Storage Classes
+    - Standard
+    - IA
+    - One Zone IA
+    - Intelligent
+    - Glacier (Instant, Flexible, Depp)
+- Snowball
+    - import/export data in S3 througha physical device
+    - edge computing
+- Storage Gateway
+    - enables hybrid cloud by bridging on-premise storage to S3
+
+
+
 ## Shared Responsibilty Model
 
 ### AWS
@@ -257,4 +310,3 @@
 - Logging and Monitoring
 - Picking S3 Ctorage Classes
 - Data encryption at rest and in transit
-
