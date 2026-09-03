@@ -135,6 +135,74 @@ NOTE: This is the most interesting section so far.
 - Developers and CodeBuild can retrieve dependencies straight from CodeArtifact
 
 
+## System Manager (SSM)
+
+- EXAM NOTE: patching or management across all servers = SSM
+
+### Overview
+- Helps manage EC2 and On-Premise systems at scale
+- Hybrid AWS service
+- Get Operational Insights about the state of your infrastructure
+- Suite of 10+ products
+- Most important features
+    - Patching automation for enhanced compliance
+    - Run commands across an entire fleet of servers
+    - Store parameter configuration with the SSM Parameter Store
+- Works for Linux, Windows, MacOS, and Raspberry Pi OS
+- Need to install SSM agent onto the systems
+- If an instance can't be controlled with SSM, it's probably an issue wit hthe agent
+- Agent can run commands, patch, and configure servers
+
+### SSM Session Manager
+- Allows you to start a secure shell on you EC2 and on-premise servers
+- No SSH access, bastion hosts, or SSH keys needed
+- No port 22 needed (better security)
+- Supports Linux, MacOS, and Windows
+- Send session log data to S3 or CloudWatch Logs
+
+### SSM Parameter Store
+- Secure storage for configuration and secrets
+- API keys, passwords, configurations
+- Serverless, scalable, durable, easy SDK
+- Control access permissions using IAM
+- Version tracking and encryption (optional)
+- Standard parameters are free
+- Types:
+    - String
+    - String List
+    - Encrypted String
+
+## Summary
+### Deployment Services
+- CloudFormation (AWS only)
+    - Infrastructure as Code, works with almost all of AWS
+    - deploy infrastructure from templates
+- Elastic Beanstalk (AWS only)
+    - Plastform as a Service (PaaS), limited to certain programming languages or Docker
+    - Deploy code consistently with known architecture
+- CodeDeploy (hybrid)
+    - Deploy and update and application onto servers
+- Systems Manager (hybrid)
+    - Patch, configure, and run commands across all or many servers
+
+### Developer Services
+- CodeCommit
+    - Store code in private git repository (similar to GitHub)
+- CodeBuild
+    - Build and code code in AWS
+- CodeDeploy
+    - Deploy code onto servers
+- CodePipeline
+    - Orchestration of ci/cd pipeline
+- CodeArtifact
+    - Store software packages / dependencies on AWS
+- AWS CDK
+    - define cloud infrastructure using a programming language
+    - code gets compiled into a CloudFormation template
+
+
+
+
 
 
 
