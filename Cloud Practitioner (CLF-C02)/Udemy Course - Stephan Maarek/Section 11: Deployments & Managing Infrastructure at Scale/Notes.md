@@ -88,6 +88,52 @@ NOTE: This is the most interesting section so far.
 - Health agent pushes metrics to CloudWatch
 - Checks for app health, publishes health events
 
+## CodeDeploy
+- deploy application updates automatically from a single interface
+- Works with EC2 instances
+- Works with on premise servers
+- Hybrid service
+- servers / instances must be provisioned and configured ahead of time with the CodeDeploy Agent
+
+## CodeCommit
+- AWS alternative to GitHub
+- Version controlled Git-based repository
+- code changes are automatically versioned 
+- Benefits:
+    - Fully managed
+    - Scalable and highly available
+    - Private, Secured, Integrated with AWS
+
+## CodeBuild
+- Cloud based code building service
+- Compiles source code, run tests, produces packages that are ready to be deployed (by CodeDeploy for example)
+- Comparable to a gitlab runner
+- Benefits:
+    - Fully managed, serverless
+    - Continuously scalable and highly available
+    - Secure
+    - Pay-as-you-go pricing - only for build time
+
+## CodePipeline
+- Orchestrates the different Code steps to have the code automatically deployed to production
+- Basis for CICD (Continuous Integration and Continuous Delivery)
+- Benefits:
+    - Fully managed
+    - compatible with CodeCommit, CodeBuild, CodeDeploy, Elastic Beanstalk, CloudFormation, GitHub, 3rd-party services & custom plugins, many more
+    - Fast delivery and rapid updates
+
+## CodeArtifact
+- Handles the storage and retrieval of software dependencies
+- Secure, stable, and cost-effective
+- Works with common dependency management tools
+    - Maven
+    - Gradle
+    - npm
+    - yarn
+    - pip
+    - and many more
+- Developers and CodeBuild can retrieve dependencies straight from CodeArtifact
+
 
 
 
