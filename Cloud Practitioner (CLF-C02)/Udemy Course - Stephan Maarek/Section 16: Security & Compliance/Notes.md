@@ -228,4 +228,92 @@
 - fully managed data security and data privacy service that uses machine learning and pattern matching to discover and protect your sensitive data in AWS
 - helps identify and alert you to sensitive data, such as personally identifiable information (PII)
 
+## AWS Security Hub
+- Central security tool used to manage security across several AWS accounts and automate security checks
+- integrated dashboards showing current security and compliance status to quickly take actions
+- Automatically aggregates alerts in predefined or personal findings formats from various AWS services & AWS partner tools:
+    - Config
+    - GuardDuty
+    - Inspector
+    - Macie
+    - IAM Access Analyzer
+    - AWS Systems Manager
+    - AWS Firewall Manager
+    - AWS health
+    - AWS Partner Network Solutions
+- Must first enable the AWS Config Service
+- Integrates with Amazon Detective to discover where issues are coming from
+
+## Amazon Detective
+- Sometimes you require deeper analysis to isolate WHY an vulnerability or security issue happened
+- analyzes, investigates, and quickly identifies the root cause of security issues or suspicious activities (using ML and graphs)
+- Automatically collects and processes events fromVPC Flow Logs, CloudTrail, GuardDuty, and creates a unified view
+- Produces visualization with details and context to help get to the root cause of an issue
+
+## AWS Abuse
+- Report suspected AWS resources for abusive or illegal purposes
+- Abusive and prohibited behaviors are:
+    - Spam 
+        - receiving undesired emails from AWS-owned IP address
+        - websites, and forums spammed by AWS resources
+    - Port scanning - sending packets to your ports to discover unsecured ones
+    - DoS or DDoS attacks 
+        - AWS owned IP addresses attempting to overwhelm or crash servers/softwares
+    - Intrusion attempts - logging in on unauthorized resources
+    - Hosting objectionable or copyright content
+        - distributing illegal or copyrighted content without consent
+    - Distributing Malware - AWS resources distributing softwares to harm computers or machines
+- contact the AWS Abuse team via the AWS abuse form or abuse@amazonaws.com
+
+## Root User Privileges
+- Root user = Account Owner (created when the account is created)
+- Has complete access to all AWS services and resources
+- Lock away your AWS account root user access keys
+- DO NOT use the root account for everyday tasks, even admin tasks
+- Actions that can only be performed by the root user
+    - Change account settings (account name, email address, root user password, root user access keys)
+    - View certain tax invoices
+    - Close an AWS account
+    - Restore IAM user permissions
+    - Change or cancel your AWS support plan
+    - Register as a seller in the reserved instance marketplace
+    - Configure an Amazon S3 bucket policy that includes an invalid VPC ID or VPC endpoint ID
+    - Sign up for GovCloud
+
+## IAM Access Analyzer
+- Find out which resources are shared externally
+    - S3 buckets
+    - IAM roles
+    - KMS Keys
+    - Lambda Functions and Layers
+    - SQS queues
+    - Secrets Manager Secrets
+- Define Zone of Trust (AWS account or AWS Organization)
+- Access outside zone of trust is flagged as findings
+
+## Summary
+- Shared Responsibility Model
+- Shield: Automatic DDoS Protection 
+    - 24/7 support if you upgrade to advanced
+- WAF: Firewall to filter incoming requests based on rules
+- KMS: Encryption keys managed by AWS
+- CloudHSM: Hardware encryption, we manage encryption keys
+- AWS Certificate Manager: provision, manage, and deploy SSL/TLS Certificates
+- Artifact: Get access to compliance reports such as PCI, ISO, etc...
+- GuardDuty: Find malicious behavior with VPC, DNS, and CloudTrail logs
+- Inspector: find software vulnerability in EC2, ECR Images, and Lambda functions
+- Network Firewall: protects VPC against network attacks
+- Config Track config changes and check compliance against rules
+- Macie: Find sensitive data (ex: PII data) in S3 buckets
+- CloudTrail: Track API calls made by users within the account
+- AWS Security Hub: gather security findings from multiple AWS accounts
+- Amazon Detective: find the root cause of security issues or suspicious activities
+- AWS Abuse: Report AWS resources used or abuse of illegal purposes
+- Root user privileges:
+    - Change account settings
+    - Close Account
+    - Change or cancel AWS support plan
+    - Register as a seller in the Reserved Instance Marketplace
+- IAM Access Analyzer: identify which resources are shared externally
+- Firewall Manager: manage security rules across an organization (WAF, Shield, etc.)
 
