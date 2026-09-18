@@ -10,7 +10,7 @@
 - NoSQL = non-SQL = non relational databases
 - NoSQL databases are purpose built for specific data models and have flexible schemas for building modern applications
 - Benefits
-    - Felxibility: easy to evolve data model
+    - flexibility: easy to evolve data model
     - Scalability: designed to scale-out by using distributed clusters
     - High performance: optimized for case-specific data model
     - Highly functional: types optimized for the data model
@@ -37,20 +37,20 @@
 - It's a managed DB service for DB using SQL as a query language
 - It allows you to create databases in the cloud that are managed by AWS
 - Supports the following:
-    - Postgras
+    - postgres
     - MySQL
     - MariaDB
     - Oracle
     - Microsoft SQL Server
     - IBM DB2
-    - Aurora (AWS Propietary database)
+    - Aurora (AWS proprietary database)
 
 ### Pros and Cons of Amazon RDS
 - Benefits of RDS over deploying a DB on EC2
     - Managed service
-    - Automated provisionsing, OS patching
+    - Automated provisioning, OS patching
     - Continuous backups and restore to specific timestamp
-    - mointoring dashboards
+    - monitoring dashboards
     - read replicas for improved read performance
     - Multi AZ setup for disaster recovery
     - maintenance windows for upgrades
@@ -59,7 +59,7 @@
 - Cons of RDS over deploying a DB on EC2
     - Can't SSH into your instances
 
-### RDS Deployements
+### RDS deployments
 
 #### Read Replicas
 - Replica of your main database
@@ -68,7 +68,7 @@
 - Writes all still happen on the main database
 
 #### Multi-AZ
-- Failover incase of AZ outage (high availability)
+- Failover in case of AZ outage (high availability)
 - Read and Writes happen on the main database
 - Failover DB only becomes active if the main database goes down
 
@@ -81,20 +81,20 @@
 - network costs associated with replicating data
 
 ## Amazon Aurora
-- Aurora is a propietary technology from AWS
-- Postgre and MySQL are both supported as Aurora DB
-- Aurora is AWS cloud optimized and claims 5x performance improvement over MySQL on RDS, over 3x the performance of Postgres on RDS
+- Aurora is a proprietary technology from AWS
+- postgres and MySQL are both supported as Aurora DB
+- Aurora is AWS cloud optimized and claims 5x performance improvement over MySQL on RDS, over 3x the performance of postgres on RDS
 - Aurora storage automatically grows in increments of 10GB, up to 256TB
 - Aurora costs more than RDS (20% more) - but is more efficient
 
 ### Aurora Serverless
 - Automated database instantiation and auto-scaling based on actual usage
-- PostgreSQL and MySQL are both supoorted as Aurora Serverless DB
+- postgresQL and MySQL are both supported as Aurora Serverless DB
 - No capacity planning needed
 - Least management overhead
 - Pay per second, can be more cost effective
 - Use cases:
-    - infrequent, intermittent, or unpreditable workloads
+    - infrequent, intermittent, or unpredictable workloads
 
 ## DocumentDB
 - similar to Aurora, but for MongoDB (NoSQL database)
@@ -120,7 +120,7 @@
 - Fully managed, fast, scalable, serverless, time series database
     - data that is evolving over time
 - Automatically scales up/down to adjust capacity
-- Stroe and analyze trillions of events per day
+- store and analyze trillions of events per day
 - 1000s time faster and 1/10 the cost of relational databases
 - Built-in time series analytics functions (helps you identify patterns in you data in near real-time)
 
@@ -145,7 +145,7 @@
 
 ### DynamoDB - Type of Data
 - key/value database
-- primary key made of Partion Key and Sort Keys
+- primary key made of partition Key and Sort Keys
 - Values are attributes, not all primary keys need to have the same attributes
 
 ### DynamoDB Accelerator - DAX
@@ -161,7 +161,7 @@
 - Active-Active replication (read/write to any AWS region)
 
 ## Redshift
-- redshit database is based on PostgresSQL, but is not used for online transaction processing (OLTP)
+- Redshift database is based on postgresSQL, but is not used for online transaction processing (OLTP)
 - Used for online analytical processing (OLAP) - analytics and data processing
 - Load data once every hour, not every second
 - 10x better performance than other data warehouses, scale to PBs of data
@@ -193,7 +193,7 @@
     - big data
 
 ## Athena
-- Serverless query service to perform analytics agains S3 objects
+- Serverless query service to perform analytics against S3 objects
 - Uses standard SQL language to query the files
 - Supports CSV, JSON, ORC, Avro, and Parquet
 - Pricing 
@@ -211,7 +211,7 @@
 - Serverless machine learning-powered business intelligence service to create interactive dashboards
 - Fast automatically scalable, embeddable, with per-session pricing
 - Use cases: 
-    - Business analytis
+    - Business analytics
     - Building visualizations
     - Perform ad-hoc analysis
     - Get business insights using data
@@ -245,7 +245,7 @@
 - The source database remain available during migration
 - Supports: 
     - Homogeneous migration (ex. Oracle to Oracle)
-    - Heterogenious migration (ex. Microsoft SQL server to Aurora)
+    - heterogeneous migration (ex. Microsoft SQL server to Aurora)
 - EXAM NOTE: Database migration = use DMS
 
 ## Databases & Analytics Summary
