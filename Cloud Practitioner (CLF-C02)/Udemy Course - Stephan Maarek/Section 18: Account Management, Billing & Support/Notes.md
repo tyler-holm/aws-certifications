@@ -196,3 +196,201 @@
 - traffic between AZs in a single region is $0.02 per GB if using a public IP
 - traffic between AZs in a single region is $0.01 per GB if using a private IP
 - Traffic between regions is $0.02 per GB (inter-region)
+
+## Savings Plan Overview
+- Commit a certain $ amount per hour for 1 or 3 years
+- Easier way to setup long-term commitments on AWS
+- EC2 Savings Plan
+    - Up to 72% discount compared to On-Demand
+    - Commit to usage of individual instance families in a region (C5 or M5)
+    - Regardless of AZ, size (m5.xl to m5.4xl), OS, or tenancy
+    - All upfront, partial upfront, no upfront
+    - All upfront = bigger discount
+- Compute Savings Plan
+    - Up to 66% discount compared to On-Demand
+    - Regardless of Family, Region, size, OS, tenancy, compute options
+    - Compute Options: EC2, Fargate, Lambda
+- Machine learning savings plan
+    - Services like SageMaker
+- Can be setup from the AWS Cost Explorer console
+- AWS has a price estimate tool
+
+## Compute Optimizer Overview
+- Reduce costs and improve performance by recommending optimal AWS resources for your workloads
+- Helps you choose optimal configurations and the right size for your workloads
+- Users Machine Learning to analyze your resources' configurations and their utilization CloudWatch metrics
+- Supported resources:
+    - EC2 instances
+    - EC2 Auto Scaling Groups
+    - EBS volumes
+    - Lambda functions
+- Lower your costs by up to 25%
+- Recommendations can be exported to S3
+
+## Billing and Costing Tools
+- Estimating costs in the cloud:
+    - Pricing calculator
+- Tracking costs in the cloud:
+    - billing dashboard
+    - cost allocation tags
+    - cost and usage reports
+    - cost explorer
+- Monitoring against costs plans:
+    - billing alarms
+    - budgets
+
+### Pricing Calculator
+- https://calculator.aws/
+- estimate the cost for your solution architecture
+
+### AWS Billing Dashboard
+- monthly cost summary
+- forecasted month costs
+- month to date costs
+
+### Cost Allocation Tags
+- used to track your AWS costs on a detailed level
+- used for organizing resources
+- AWS generated tags
+    - start with "aws" prefix
+    - automatically applied to created resources
+- User defined tags
+    - start with the "user" prefix
+    - allow grouping by more abstract tags
+        - application
+        - owner
+        - etc.
+- Can be used to create resource groups
+    - Create, maintain, and view a collection of resources that share common tags
+    - manage common tags with the tag editor
+- Can be applied to all resources created via CloudFormations template
+
+### Cost and Usage Reports
+- Dive deeper into your AWS costs and usage
+- The AWS Cost and Usage Report contains the most comprehensive set of AWS cost and usage data available, including additional metadata about AWS services, pricing, and reservations.
+- The AWS Cost and Usage Report lists AWS usage for each service category used by an account and its IAM users in hourly or daily line items, as well as any tags that you have activated for cost allocation purposes
+- Can be integrated with Athena, Redshift, or QuickSight
+
+### Cost Explorer
+- Visualize, understand, and mange your AWS costs and usage over time
+- Create custom reports that analyze cost and usage data
+- Analyze your data at a high level: total costs and usage across all account
+- explore at the monthly, hourly, or resource level
+- Choose an optimal Savings Plan 
+- EXAM NOTE: Forecast usage up to 12 months based on previous usage
+
+### Billing Alarms in CloudWatch
+- Billing data metric is stored in CloudWatch us-east-1
+- Billing data is aggregated for global AWS costs
+- Its for actual cost, not projected
+- Intended as a simple alarm. (not as powerful as AWS budgets)
+
+### AWS Budgets
+- Create budget and send alarms when costs exceed the budget
+- 4 types of budget: Usage, Cost, Reservation, Savings Plans
+- For Reserved Instances
+    - Track utilization
+    - Supports EC2, ElastiCache, RDS, Redshift
+- Up to 5 SNS notifications per budget
+- Can filter by: Service, Linked Account, Tag, Purchase Option, Instance Type, Region, Availability Zone, API Operation, etc
+- Same options and cost explorer
+
+## Cost Anomaly Detection
+- Continuously monitors your cost and usage using ML to detect unusual spends
+- It learns your unique historical spend patterns to detect one-time cost spikes and/or continuous cost increases (you don't need to define thresholds)
+- Monitor AWS services, member accounts, cost allocation tags, or cost categories
+- Sends you the anomaly detection report with root-cause analysis
+- Get notified with individual alerts or daily/weekly summary (using SNS)
+
+## AWS Service Quotas
+- Notify you when you're close to a service quota value threshold
+- Example:
+    - Getting close to the limit of how many Lambda functions you can run at the same time
+- Create CloudWatch Alarms on the Service Quotas console
+- Request a quota increase from the AWS Service Quotas or shutdown resources before limit is reached
+
+## AWS Trusted Advisor
+- No need to install anything - high level AWS account assessment
+- Analyze your AWS accounts and provides recommendations in 6 areas:
+    - Cost Optimization
+    - Performance
+    - Security
+    - Fault tolerance
+    - Service Limits
+    - Operational Excellence
+- Business and Enterprise Support plan is required for full set of checks
+    - Programmatic Access using AWS Support API
+
+## Support Plans for AWS
+- Basic Support: free
+- Business Support Plus: minimum $29/month per account
+- Enterprise Support: minimum $5k per month
+- Unified Operations: minimum $50k per month
+
+### Basic Support
+- Customer Service and Communities
+    - 24/7 access to customer service, documentation, whitepapers, and support forums
+- AWS Trusted Advisor - Access to the 7 core Trusted Advisor checks and guidance to provision your resources following best practices to increase performance and improve security 
+- AWS Personal Health Dashboard - personalized view of the health of AWS services, and alerts when your resources are impacted
+
+### AWS Business Support Plus
+- Intended to be used if you have production workloads
+- Real time and contextual responses through Generative AI
+- Trusted Advisor - Full set of checks plus api access
+- 24/7 phone, web, and chat access to Cloud Support Engineers
+- Unlimited cases /unlimited contacts
+- Max 30 minutes of waiting before getting a human support response for business-critical system down cases
+- 3rd party software support (EC@ operating system like ubuntu)
+
+### AWS Enterprise Support Plan
+- All of Business Support+ Plan
+- Intended to be used if you have production or business critical workloads
+- Access to a designated Technical Account Manager (TAM)
+- Less than 15 minutes for case response on production-critical issues
+- Access to AWS Security Incident Response team
+- Business reviews from AWS experts
+- Access to AWS countdown event management (specialized TAM-led support to help you succeed during critical business events)
+
+### AWS Unified Operations Support Plan
+- Intended to be used if you have mission critical workloads
+- All of Business Support Plan
+- Application Architecture Guidance - helps you design architectures that fit your use case, workloads, etc
+- Short-term engagement with AWS Support for deep understanding, analysis, then provide architectural guidance
+- Access to a designated:
+    - TAM (Technical Account Manager)
+    - DSE (Domain Specialist Engineer)
+    - SBAS (Senior Billing and Account Specialist)
+    - IME (Incident Management Engineer)
+    - Migration Specialist
+    - SSE (Specialist Support Engineer)
+- Access to AWS Countdown Premium and AWS Customer Incident Response Team (CIRT)
+- Critical workload review
+
+## Summary
+
+### Account Best Practices
+- Operate multiple accounts using organizations
+- Use SCP (service control policies) to restrict account power
+- Easily setup multiple accounts with best-practices with AWS Control Tower
+- Use Tags and Cost Allocation Tags for easy management and billing
+- IAM guidelines: MFA, least-privilege, password policy, password rotation
+- Config to record all resources configurations and compliance over time
+- CloudFormation: to deploy stacks across accounts and regions
+- Trusted Advisor to get insights, Support Plan adapted to your needs
+- Send Service Logs and Access Logs to S3 or CloudWatch Logs
+- CloudTrail to record API calls made within your account
+- If your Account is compromised: change the root password, delete and rotate all passwords / keys, contact the AWS support
+- Allow users to create pre-defined stacks defined by admins using AWS Service Catalog
+
+### Billing
+- Compute Optimizer: recommends resources' configurations to reduce cost
+- Pricing Calculator: estimate cost of services on AWS
+- Billing Dashboard: high level overview of billing
+- Cost Allocation Tags: tag resources to create detailed reports
+- Cost and Usage Reports: most comprehensive billing dataset
+- Cost Explorer: View current usage (detailed) and forecast usage
+- Billing Alarms: in us-east-1 - track overall and per-service billing
+- Budgets: more advanced - track usage, costs, RI, and get alerts
+- Savings Plans: easy way to save based on long-term usage of AWS
+- Cost Anomaly Detection: detect unusual spends using Machine Learning
+- Service Quotas: notify you when you're close to service quota threshold 
